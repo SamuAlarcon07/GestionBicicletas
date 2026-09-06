@@ -1,0 +1,123 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #f4f6f8;
+}
+
+/* MENÚ LATERAL */
+
+.menu-lateral {
+    -fx-background-color: #1f2937;
+}
+
+.titulo-menu {
+    -fx-text-fill: white;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.subtitulo-menu {
+    -fx-text-fill: #9ca3af;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 15 0;
+}
+
+.boton-menu {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e5e7eb;
+    -fx-font-size: 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-pref-height: 45px;
+    -fx-pref-width: 200px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.boton-menu:hover {
+    -fx-background-color: #374151;
+    -fx-text-fill: white;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.contenido-principal {
+    -fx-background-color: #f4f6f8;
+}
+
+.titulo-principal {
+    -fx-text-fill: #1f2937;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.descripcion-principal {
+    -fx-text-fill: #4b5563;
+    -fx-font-size: 18px;
+}
+
+.instruccion {
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 14px;
+    -fx-padding: 20 0 0 0;
+}.root {
+     -fx-font-family: "Segoe UI";
+     -fx-background-color: #f4f6f8;
+ }
+
+/* MENÚ LATERAL */
+
+.menu-lateral {
+    -fx-background-color: #1f2937;
+}
+
+.titulo-menu {
+    -fx-text-fill: white;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.subtitulo-menu {
+    -fx-text-fill: #9ca3af;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 15 0;
+}
+
+.boton-menu {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e5e7eb;
+    -fx-font-size: 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-pref-height: 45px;
+    -fx-pref-width: 200px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.boton-menu:hover {
+    -fx-background-color: #374151;
+    -fx-text-fill: white;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.contenido-principal {
+    -fx-background-color: #f4f6f8;
+}
+
+.titulo-principal {
+    -fx-text-fill: #1f2937;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.descripcion-principal {
+    -fx-text-fill: #4b5563;
+    -fx-font-size: 18px;
+}
+
+.instruccion {
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 14px;
+    -fx-padding: 20 0 0 0;
+}

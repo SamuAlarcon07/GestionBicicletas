@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@styles.css">
+
+    <left>
+        <VBox prefWidth="240"
+              spacing="10"
+              styleClass="menu-lateral">
+
+            <padding>
+                <Insets top="30" right="20" bottom="30" left="20"/>
+            </padding>
+
+            <Label text="GESTIÓN"
+                   styleClass="titulo-menu"/>
+
+            <Label text="BICICLETAS"
+                   styleClass="subtitulo-menu"/>
+
+            <VBox spacing="8"
+                  VBox.vgrow="ALWAYS">
+
+                <Button text="Clientes"
+                        styleClass="boton-menu"/>
+
+                <Button text="Bicicletas"
+                        styleClass="boton-menu"/>
+
+                <Button text="Mecánicos"
+                        styleClass="boton-menu"/>
+
+                <Button text="Órdenes de servicio"
+                        styleClass="boton-menu"/>
+
+                <Button text="Historial"
+                        styleClass="boton-menu"/>
+
+                <Button text="Buscar por fecha"
+                        styleClass="boton-menu"/>
+
+                <Button text="Stock bajo"
+                        styleClass="boton-menu"/>
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox alignment="CENTER"
+              spacing="15"
+              styleClass="contenido-principal">
+
+            <Label text="Gestión de Bicicletas"
+                   styleClass="titulo-principal"/>
+
+            <Label text="Sistema de gestión para taller de bicicletas"
+                   styleClass="descripcion-principal"/>
+
+            <Label text="Selecciona una opción del menú para comenzar"
+                   styleClass="instruccion"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>
