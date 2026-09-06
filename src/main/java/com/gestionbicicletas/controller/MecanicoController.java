@@ -1,16 +1,18 @@
 package com.gestionbicicletas.controller;
 
-import com.gestionbicicletas.model.Cliente;
+import com.gestionbicicletas.model.Especialidad;
+import com.gestionbicicletas.model.Mecanico;
 import com.gestionbicicletas.service.GestionTaller;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class ClienteController {
+public class MecanicoController {
 
     private GestionTaller gestionTaller;
 
@@ -18,31 +20,27 @@ public class ClienteController {
     private TextField txtNombre;
 
     @FXML
-    private TextField txtIdentificacion;
+    private ComboBox<Especialidad> comboEspecialidad;
 
     @FXML
-    private TextField txtTelefono;
+    private TextField txtCodigo;
 
     @FXML
-    private TextField txtDireccion;
+    private TableView<Mecanico> tablaMecanicos;
 
     @FXML
-    private TableView<Cliente> tablaClientes;
+    private TableColumn<Mecanico, String> columnaNombre;
 
     @FXML
-    private TableColumn<Cliente, String> columnaNombre;
+    private TableColumn<Mecanico, String> columnaEspecialidad;
 
     @FXML
-    private TableColumn<Cliente, String> columnaIdentificacion;
-
-    @FXML
-    private TableColumn<Cliente, String> columnaTelefono;
-
-    @FXML
-    private TableColumn<Cliente, String> columnaDireccion;
+    private TableColumn<Mecanico, String> columnaCodigo;
 
     public void setGestionTaller(GestionTaller gestionTaller) {
         this.gestionTaller = gestionTaller;
+
+        cargarEspecialidades();
         actualizarTabla();
     }
 
@@ -55,59 +53,61 @@ public class ClienteController {
                 )
         );
 
-        columnaIdentificacion.setCellValueFactory(
+        columnaEspecialidad.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getIdentificacion()
+                        datos.getValue().getEspecialidad().toString()
                 )
         );
 
-        columnaTelefono.setCellValueFactory(
+        columnaCodigo.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getTelefono()
+                        datos.getValue().getCodigoCertificacion()
                 )
         );
+    }
 
-        columnaDireccion.setCellValueFactory(
-                datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getDireccion()
+    private void cargarEspecialidades() {
+
+        comboEspecialidad.setItems(
+                FXCollections.observableArrayList(
+                        Especialidad.values()
                 )
         );
     }
 
     @FXML
-    private void registrarCliente() {
+    private void registrarMecanico() {
 
         if (txtNombre.getText().isBlank()
-                || txtIdentificacion.getText().isBlank()
-                || txtTelefono.getText().isBlank()
-                || txtDireccion.getText().isBlank()) {
+                || comboEspecialidad.getValue() == null
+                || txtCodigo.getText().isBlank()) {
 
             mostrarAlerta(
                     Alert.AlertType.WARNING,
                     "Campos incompletos",
                     "Por favor, completa todos los campos."
             );
+
             return;
         }
 
         try {
 
-            Cliente cliente = new Cliente(
+            Mecanico mecanico = new Mecanico(
                     txtNombre.getText().trim(),
-                    txtIdentificacion.getText().trim(),
-                    txtTelefono.getText().trim(),
-                    txtDireccion.getText().trim()
+                    comboEspecialidad.getValue(),
+                    txtCodigo.getText().trim()
             );
 
-            gestionTaller.registrarCliente(cliente);
+            gestionTaller.registrarMecanico(mecanico);
 
             limpiarCampos();
             actualizarTabla();
 
             mostrarAlerta(
                     Alert.AlertType.INFORMATION,
-                    "Cliente registrado",
-                    "El cliente se registró correctamente."
+                    "Mecánico registrado",
+                    "El mecánico se registró correctamente."
             );
 
         } catch (IllegalArgumentException e) {
@@ -122,10 +122,10 @@ public class ClienteController {
 
     @FXML
     private void limpiarCampos() {
+
         txtNombre.clear();
-        txtIdentificacion.clear();
-        txtTelefono.clear();
-        txtDireccion.clear();
+        comboEspecialidad.setValue(null);
+        txtCodigo.clear();
     }
 
     private void actualizarTabla() {
@@ -134,9 +134,9 @@ public class ClienteController {
             return;
         }
 
-        tablaClientes.setItems(
+        tablaMecanicos.setItems(
                 FXCollections.observableArrayList(
-                        gestionTaller.getClientes()
+                        gestionTaller.getMecanicos()
                 )
         );
     }
@@ -144,7 +144,7 @@ public class ClienteController {
     @FXML
     private void volverAlMenu() {
 
-        Stage stage = (Stage) tablaClientes.getScene().getWindow();
+        Stage stage = (Stage) tablaMecanicos.getScene().getWindow();
         stage.close();
     }
 
@@ -161,17 +161,17 @@ public class ClienteController {
     }
 
     @FXML
-    private void eliminarCliente() {
+    private void eliminarMecanico() {
 
-        Cliente clienteSeleccionado =
-                tablaClientes.getSelectionModel().getSelectedItem();
+        Mecanico mecanicoSeleccionado =
+                tablaMecanicos.getSelectionModel().getSelectedItem();
 
-        if (clienteSeleccionado == null) {
+        if (mecanicoSeleccionado == null) {
 
             mostrarAlerta(
                     Alert.AlertType.WARNING,
-                    "Ningún cliente seleccionado",
-                    "Selecciona un cliente de la tabla."
+                    "Ningún mecánico seleccionado",
+                    "Selecciona un mecánico de la tabla."
             );
 
             return;
@@ -184,8 +184,8 @@ public class ClienteController {
         confirmacion.setTitle("Confirmar eliminación");
         confirmacion.setHeaderText(null);
         confirmacion.setContentText(
-                "¿Deseas eliminar al cliente "
-                        + clienteSeleccionado.getNombreCompleto()
+                "¿Deseas eliminar al mecánico "
+                        + mecanicoSeleccionado.getNombreCompleto()
                         + "?"
         );
 
@@ -194,14 +194,16 @@ public class ClienteController {
 
             try {
 
-                gestionTaller.eliminarCliente(clienteSeleccionado);
+                gestionTaller.eliminarMecanico(
+                        mecanicoSeleccionado
+                );
 
                 actualizarTabla();
 
                 mostrarAlerta(
                         Alert.AlertType.INFORMATION,
-                        "Cliente eliminado",
-                        "El cliente se eliminó correctamente."
+                        "Mecánico eliminado",
+                        "El mecánico se eliminó correctamente."
                 );
 
             } catch (IllegalArgumentException e) {

@@ -56,4 +56,24 @@ public class MenuController {
         stage.setScene(new Scene(root, 1100, 650));
         stage.show();
     }
+
+    @FXML
+    private void abrirMecanicos() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/com/gestionbicicletas/mecanicos.fxml"
+                )
+        );
+
+        Parent root = loader.load();
+
+        MecanicoController controller = loader.getController();
+        controller.setGestionTaller(gestionTaller);
+
+        Stage stage = new Stage();
+        stage.setTitle("Gestión de Mecánicos");
+        stage.setScene(new Scene(root, 950, 600));
+        stage.show();
+    }
 }

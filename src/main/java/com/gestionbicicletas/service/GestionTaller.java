@@ -51,6 +51,21 @@ public class GestionTaller {
         return null;
     }
 
+    public void eliminarCliente(Cliente cliente) {
+
+        if (cliente == null) {
+            return;
+        }
+
+        if (!cliente.getBicicletas().isEmpty()) {
+            throw new IllegalArgumentException(
+                    "No se puede eliminar el cliente porque tiene bicicletas asociadas."
+            );
+        }
+
+        clientes.remove(cliente);
+    }
+
     public void registrarBicicleta(Bicicleta bicicleta) {
 
         if (buscarBicicletaPorSerial(bicicleta.getSerial()) != null) {
@@ -86,6 +101,27 @@ public class GestionTaller {
         return null;
     }
 
+    public void eliminarBicicleta(Bicicleta bicicleta) {
+
+        if (bicicleta == null) {
+            return;
+        }
+
+        if (!bicicleta.getOrdenesServicio().isEmpty()) {
+            throw new IllegalArgumentException(
+                    "No se puede eliminar la bicicleta porque tiene órdenes de servicio."
+            );
+        }
+
+        Cliente cliente = bicicleta.getCliente();
+
+        if (cliente != null) {
+            cliente.getBicicletas().remove(bicicleta);
+        }
+
+        bicicletas.remove(bicicleta);
+    }
+
     public void registrarMecanico(Mecanico mecanico) {
 
         if (buscarMecanicoPorCodigo(
@@ -109,6 +145,24 @@ public class GestionTaller {
         }
 
         return null;
+    }
+
+    public void eliminarMecanico(Mecanico mecanico) {
+
+        if (mecanico == null) {
+            return;
+        }
+
+        for (OrdenServicio orden : ordenesServicio) {
+
+            if (orden.getMecanico() == mecanico) {
+                throw new IllegalArgumentException(
+                        "No se puede eliminar el mecánico porque tiene órdenes de servicio."
+                );
+            }
+        }
+
+        mecanicos.remove(mecanico);
     }
 
     public void registrarOrdenServicio(OrdenServicio orden) {

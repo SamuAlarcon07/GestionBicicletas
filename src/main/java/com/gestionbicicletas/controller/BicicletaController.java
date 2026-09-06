@@ -231,4 +231,61 @@ public class BicicletaController {
         alerta.setContentText(mensaje);
         alerta.showAndWait();
     }
+
+    @FXML
+    private void eliminarBicicleta() {
+
+        Bicicleta bicicletaSeleccionada =
+                tablaBicicletas.getSelectionModel().getSelectedItem();
+
+        if (bicicletaSeleccionada == null) {
+
+            mostrarAlerta(
+                    Alert.AlertType.WARNING,
+                    "Ninguna bicicleta seleccionada",
+                    "Selecciona una bicicleta de la tabla."
+            );
+
+            return;
+        }
+
+        Alert confirmacion = new Alert(
+                Alert.AlertType.CONFIRMATION
+        );
+
+        confirmacion.setTitle("Confirmar eliminación");
+        confirmacion.setHeaderText(null);
+        confirmacion.setContentText(
+                "¿Deseas eliminar la bicicleta con serial "
+                        + bicicletaSeleccionada.getSerial()
+                        + "?"
+        );
+
+        if (confirmacion.showAndWait().orElse(null)
+                == javafx.scene.control.ButtonType.OK) {
+
+            try {
+
+                gestionTaller.eliminarBicicleta(
+                        bicicletaSeleccionada
+                );
+
+                actualizarTabla();
+
+                mostrarAlerta(
+                        Alert.AlertType.INFORMATION,
+                        "Bicicleta eliminada",
+                        "La bicicleta se eliminó correctamente."
+                );
+
+            } catch (IllegalArgumentException e) {
+
+                mostrarAlerta(
+                        Alert.AlertType.ERROR,
+                        "No se puede eliminar",
+                        e.getMessage()
+                );
+            }
+        }
+    }
 }

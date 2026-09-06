@@ -38,6 +38,7 @@
                         styleClass="boton-menu"/>
 
                 <Button text="Mecánicos"
+                        onAction="#abrirMecanicos"
                         styleClass="boton-menu"/>
 
                 <Button text="Órdenes de servicio"

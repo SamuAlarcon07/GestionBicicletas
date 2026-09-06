@@ -129,6 +129,10 @@
                             onAction="#limpiarCampos"
                             styleClass="boton-secundario"/>
 
+                    <Button text="Eliminar seleccionado"
+                            onAction="#eliminarBicicleta"
+                            styleClass="boton-eliminar"/>
+
                 </HBox>
 
             </VBox>

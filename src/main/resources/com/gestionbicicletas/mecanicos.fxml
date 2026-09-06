@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -13,32 +14,43 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.gestionbicicletas.controller.ClienteController"
+            fx:controller="com.gestionbicicletas.controller.MecanicoController"
             stylesheets="@styles.css">
 
     <top>
-        <HBox spacing="15" alignment="CENTER_LEFT">
+
+        <HBox spacing="15"
+              alignment="CENTER_LEFT">
+
             <padding>
-                <Insets top="20" right="25" bottom="20" left="25"/>
+                <Insets top="20"
+                        right="25"
+                        bottom="20"
+                        left="25"/>
             </padding>
 
             <Button text="← Volver"
                     onAction="#volverAlMenu"
                     styleClass="boton-secundario"/>
 
-            <Label text="Gestión de Clientes"
+            <Label text="Gestión de Mecánicos"
                    styleClass="titulo-principal"/>
+
         </HBox>
+
     </top>
 
     <center>
+
         <HBox spacing="30">
 
-            <VBox prefWidth="330"
+            <!-- FORMULARIO -->
+
+            <VBox prefWidth="350"
                   spacing="15"
                   styleClass="panel">
 
-                <Label text="Registrar cliente"
+                <Label text="Registrar mecánico"
                        styleClass="titulo-seccion"/>
 
                 <GridPane hgap="10"
@@ -53,31 +65,25 @@
                                GridPane.rowIndex="0"
                                GridPane.columnIndex="1"/>
 
-                    <Label text="Identificación:"
+
+                    <Label text="Especialidad:"
                            GridPane.rowIndex="1"
                            GridPane.columnIndex="0"/>
 
-                    <TextField fx:id="txtIdentificacion"
-                               promptText="Identificación"
-                               GridPane.rowIndex="1"
-                               GridPane.columnIndex="1"/>
+                    <ComboBox fx:id="comboEspecialidad"
+                              promptText="Selecciona la especialidad"
+                              prefWidth="210"
+                              GridPane.rowIndex="1"
+                              GridPane.columnIndex="1"/>
 
-                    <Label text="Teléfono:"
+
+                    <Label text="Código:"
                            GridPane.rowIndex="2"
                            GridPane.columnIndex="0"/>
 
-                    <TextField fx:id="txtTelefono"
-                               promptText="Teléfono"
+                    <TextField fx:id="txtCodigo"
+                               promptText="Código de certificación"
                                GridPane.rowIndex="2"
-                               GridPane.columnIndex="1"/>
-
-                    <Label text="Dirección:"
-                           GridPane.rowIndex="3"
-                           GridPane.columnIndex="0"/>
-
-                    <TextField fx:id="txtDireccion"
-                               promptText="Dirección"
-                               GridPane.rowIndex="3"
                                GridPane.columnIndex="1"/>
 
                 </GridPane>
@@ -85,7 +91,7 @@
                 <HBox spacing="10">
 
                     <Button text="Registrar"
-                            onAction="#registrarCliente"
+                            onAction="#registrarMecanico"
                             styleClass="boton-principal"/>
 
                     <Button text="Limpiar"
@@ -93,41 +99,40 @@
                             styleClass="boton-secundario"/>
 
                     <Button text="Eliminar seleccionado"
-                            onAction="#eliminarCliente"
+                            onAction="#eliminarMecanico"
                             styleClass="boton-eliminar"/>
 
                 </HBox>
 
             </VBox>
 
+
+            <!-- TABLA -->
+
             <VBox spacing="15"
                   VBox.vgrow="ALWAYS"
                   HBox.hgrow="ALWAYS"
                   styleClass="panel">
 
-                <Label text="Clientes registrados"
+                <Label text="Mecánicos registrados"
                        styleClass="titulo-seccion"/>
 
-                <TableView fx:id="tablaClientes"
+                <TableView fx:id="tablaMecanicos"
                            VBox.vgrow="ALWAYS">
 
                     <columns>
 
                         <TableColumn fx:id="columnaNombre"
                                      text="Nombre"
-                                     prefWidth="170"/>
+                                     prefWidth="200"/>
 
-                        <TableColumn fx:id="columnaIdentificacion"
-                                     text="Identificación"
-                                     prefWidth="120"/>
+                        <TableColumn fx:id="columnaEspecialidad"
+                                     text="Especialidad"
+                                     prefWidth="220"/>
 
-                        <TableColumn fx:id="columnaTelefono"
-                                     text="Teléfono"
-                                     prefWidth="110"/>
-
-                        <TableColumn fx:id="columnaDireccion"
-                                     text="Dirección"
-                                     prefWidth="170"/>
+                        <TableColumn fx:id="columnaCodigo"
+                                     text="Código"
+                                     prefWidth="150"/>
 
                     </columns>
 
@@ -136,10 +141,14 @@
             </VBox>
 
         </HBox>
+
     </center>
 
     <padding>
-        <Insets top="10" right="25" bottom="25" left="25"/>
+        <Insets top="10"
+                right="25"
+                bottom="25"
+                left="25"/>
     </padding>
 
 </BorderPane>
