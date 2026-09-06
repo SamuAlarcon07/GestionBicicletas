@@ -23,6 +23,11 @@ public class Main extends Application {
 
         Scene scene = new Scene(loader.load(), 1000, 650);
 
+        com.gestionbicicletas.controller.MenuController controller =
+                loader.getController();
+
+        controller.setGestionTaller(gestionTaller);
+
         stage.setTitle("Gestión de Bicicletas");
         stage.setScene(scene);
         stage.setMinWidth(900);

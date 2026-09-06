@@ -8,6 +8,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gestionbicicletas.controller.MenuController"
             stylesheets="@styles.css">
 
     <left>
@@ -29,6 +30,7 @@
                   VBox.vgrow="ALWAYS">
 
                 <Button text="Clientes"
+                        onAction="#abrirClientes"
                         styleClass="boton-menu"/>
 
                 <Button text="Bicicletas"
