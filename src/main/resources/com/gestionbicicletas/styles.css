@@ -180,3 +180,9 @@
 .boton-eliminar:hover {
     -fx-background-color: #b91c1c;
 }
+
+.etiqueta-formulario {
+    -fx-text-fill: #374151;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}

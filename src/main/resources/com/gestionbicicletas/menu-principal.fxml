@@ -42,6 +42,7 @@
                         styleClass="boton-menu"/>
 
                 <Button text="Órdenes de servicio"
+                        onAction="#abrirOrdenes"
                         styleClass="boton-menu"/>
 
                 <Button text="Historial"

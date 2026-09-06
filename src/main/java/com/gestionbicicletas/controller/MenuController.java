@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import com.gestionbicicletas.controller.OrdenServicioController;
+
 import com.gestionbicicletas.controller.BicicletaController;
 
 import java.io.IOException;
@@ -74,6 +76,28 @@ public class MenuController {
         Stage stage = new Stage();
         stage.setTitle("Gestión de Mecánicos");
         stage.setScene(new Scene(root, 950, 600));
+        stage.show();
+    }
+
+    @FXML
+    private void abrirOrdenes() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/com/gestionbicicletas/ordenes.fxml"
+                )
+        );
+
+        Parent root = loader.load();
+
+        OrdenServicioController controller =
+                loader.getController();
+
+        controller.setGestionTaller(gestionTaller);
+
+        Stage stage = new Stage();
+        stage.setTitle("Órdenes de Servicio");
+        stage.setScene(new Scene(root, 1250, 750));
         stage.show();
     }
 }

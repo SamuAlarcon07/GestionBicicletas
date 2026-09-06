@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gestionbicicletas.controller.OrdenServicioController"
+            stylesheets="@styles.css">
+
+    <top>
+
+        <HBox spacing="15"
+              alignment="CENTER_LEFT">
+
+            <padding>
+                <Insets top="20"
+                        right="25"
+                        bottom="20"
+                        left="25"/>
+            </padding>
+
+            <Button text="← Volver"
+                    onAction="#volverAlMenu"
+                    styleClass="boton-secundario"/>
+
+            <Label text="Órdenes de Servicio"
+                   styleClass="titulo-principal"/>
+
+        </HBox>
+
+    </top>
+
+    <center>
+
+        <HBox spacing="25">
+
+            <!-- FORMULARIO -->
+
+            <VBox prefWidth="400"
+                  spacing="15"
+                  styleClass="panel">
+
+                <Label text="Nueva orden de servicio"
+                       styleClass="titulo-seccion"/>
+
+                <GridPane hgap="10"
+                          vgap="12">
+
+                    <Label text="Fecha:"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="0"/>
+
+                    <DatePicker fx:id="fechaIngreso"
+                                prefWidth="220"
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="1"/>
+
+
+                    <Label text="Hora:"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="0"/>
+
+                    <TextField fx:id="txtHora"
+                               promptText="HH:mm"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="1"/>
+
+
+                    <Label text="Bicicleta:"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="0"/>
+
+                    <ComboBox fx:id="comboBicicleta"
+                              promptText="Selecciona una bicicleta"
+                              prefWidth="220"
+                              GridPane.rowIndex="2"
+                              GridPane.columnIndex="1"/>
+
+
+                    <Label text="Mecánico:"
+                           GridPane.rowIndex="3"
+                           GridPane.columnIndex="0"/>
+
+                    <ComboBox fx:id="comboMecanico"
+                              promptText="Selecciona un mecánico"
+                              prefWidth="220"
+                              GridPane.rowIndex="3"
+                              GridPane.columnIndex="1"/>
+
+                </GridPane>
+
+
+                <Label text="Motivo del servicio:"
+                       styleClass="etiqueta-formulario"/>
+
+                <TextArea fx:id="txtMotivo"
+                          promptText="Describe el motivo del servicio"
+                          prefRowCount="3"
+                          wrapText="true"/>
+
+
+                <Label text="Diagnóstico:"
+                       styleClass="etiqueta-formulario"/>
+
+                <TextArea fx:id="txtDiagnostico"
+                          promptText="Describe el diagnóstico"
+                          prefRowCount="3"
+                          wrapText="true"/>
+
+
+                <Label text="Trabajos realizados:"
+                       styleClass="etiqueta-formulario"/>
+
+                <TextArea fx:id="txtTrabajos"
+                          promptText="Describe los trabajos realizados"
+                          prefRowCount="3"
+                          wrapText="true"/>
+
+
+                <Label text="Costo total:"
+                       styleClass="etiqueta-formulario"/>
+
+                <TextField fx:id="txtCosto"
+                           promptText="Ejemplo: 85000"/>
+
+
+                <HBox spacing="10">
+
+                    <Button text="Registrar"
+                            onAction="#registrarOrden"
+                            styleClass="boton-principal"/>
+
+                    <Button text="Limpiar"
+                            onAction="#limpiarCampos"
+                            styleClass="boton-secundario"/>
+
+                </HBox>
+
+            </VBox>
+
+
+            <!-- TABLA -->
+
+            <VBox spacing="15"
+                  VBox.vgrow="ALWAYS"
+                  HBox.hgrow="ALWAYS"
+                  styleClass="panel">
+
+                <Label text="Órdenes registradas"
+                       styleClass="titulo-seccion"/>
+
+                <TableView fx:id="tablaOrdenes"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="columnaFecha"
+                                     text="Fecha"
+                                     prefWidth="90"/>
+
+                        <TableColumn fx:id="columnaHora"
+                                     text="Hora"
+                                     prefWidth="70"/>
+
+                        <TableColumn fx:id="columnaBicicleta"
+                                     text="Serial bicicleta"
+                                     prefWidth="130"/>
+
+                        <TableColumn fx:id="columnaMecanico"
+                                     text="Mecánico"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="columnaMotivo"
+                                     text="Motivo"
+                                     prefWidth="200"/>
+
+                        <TableColumn fx:id="columnaCosto"
+                                     text="Costo"
+                                     prefWidth="100"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </HBox>
+
+    </center>
+
+    <padding>
+        <Insets top="10"
+                right="25"
+                bottom="25"
+                left="25"/>
+    </padding>
+
+</BorderPane>
