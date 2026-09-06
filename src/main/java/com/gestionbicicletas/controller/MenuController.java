@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import com.gestionbicicletas.controller.BicicletaController;
+
 import java.io.IOException;
 
 public class MenuController {
@@ -32,6 +34,26 @@ public class MenuController {
         Stage stage = new Stage();
         stage.setTitle("Gestión de Clientes");
         stage.setScene(new Scene(root, 1000, 650));
+        stage.show();
+    }
+
+    @FXML
+    private void abrirBicicletas() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/com/gestionbicicletas/bicicletas.fxml"
+                )
+        );
+
+        Parent root = loader.load();
+
+        BicicletaController controller = loader.getController();
+        controller.setGestionTaller(gestionTaller);
+
+        Stage stage = new Stage();
+        stage.setTitle("Gestión de Bicicletas");
+        stage.setScene(new Scene(root, 1100, 650));
         stage.show();
     }
 }
