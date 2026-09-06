@@ -3,10 +3,10 @@ package com.gestionbicicletas.model;
 public class Mecanico {
 
     private String nombreCompleto;
-    private String especialidad;
+    private Especialidad especialidad;
     private String codigoCertificacion;
 
-    public Mecanico(String nombreCompleto, String especialidad,
+    public Mecanico(String nombreCompleto, Especialidad especialidad,
                     String codigoCertificacion) {
 
         this.nombreCompleto = nombreCompleto;
@@ -22,11 +22,11 @@ public class Mecanico {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public String getEspecialidad() {
+    public Especialidad getEspecialidad() {
         return especialidad;
     }
 
-    public void setEspecialidad(String especialidad) {
+    public void setEspecialidad(Especialidad especialidad) {
         this.especialidad = especialidad;
     }
 

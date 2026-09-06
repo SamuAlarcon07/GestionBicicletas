@@ -6,14 +6,14 @@ import java.util.List;
 public class Bicicleta {
 
     private String marca;
-    private String tipo;
+    private TipoBicicleta tipo;
     private String color;
     private String serial;
     private int anio;
     private Cliente cliente;
     private List<OrdenServicio> ordenesServicio;
 
-    public Bicicleta(String marca, String tipo, String color,
+    public Bicicleta(String marca, TipoBicicleta tipo, String color,
                      String serial, int anio, Cliente cliente) {
 
         this.marca = marca;
@@ -33,11 +33,11 @@ public class Bicicleta {
         this.marca = marca;
     }
 
-    public String getTipo() {
+    public TipoBicicleta getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoBicicleta tipo) {
         this.tipo = tipo;
     }
 
@@ -78,7 +78,10 @@ public class Bicicleta {
     }
 
     public void agregarOrdenServicio(OrdenServicio orden) {
-        ordenesServicio.add(orden);
+        if (!ordenesServicio.contains(orden)) {
+            ordenesServicio.add(orden);
+            orden.setBicicleta(this);
+        }
     }
 
     @Override

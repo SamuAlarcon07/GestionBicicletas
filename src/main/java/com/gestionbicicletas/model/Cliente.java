@@ -58,7 +58,10 @@ public class Cliente {
     }
 
     public void agregarBicicleta(Bicicleta bicicleta) {
-        bicicletas.add(bicicleta);
+        if (!bicicletas.contains(bicicleta)) {
+            bicicletas.add(bicicleta);
+            bicicleta.setCliente(this);
+        }
     }
 
     @Override
