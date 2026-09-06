@@ -1,4 +1,4 @@
-package co.edu.uniquindio.gestionbicicletas.gestionbicicletas;
+package com.gestionbicicletas;
 
 import javafx.application.Application;
 

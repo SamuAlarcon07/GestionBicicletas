@@ -3,6 +3,6 @@ module co.edu.uniquindio.gestionbicicletas.gestionbicicletas {
     requires javafx.fxml;
 
 
-    opens co.edu.uniquindio.gestionbicicletas.gestionbicicletas to javafx.fxml;
-    exports co.edu.uniquindio.gestionbicicletas.gestionbicicletas;
+    opens com.gestionbicicletas to javafx.fxml;
+    exports com.gestionbicicletas;
 }
