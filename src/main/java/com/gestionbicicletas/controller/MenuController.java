@@ -100,4 +100,26 @@ public class MenuController {
         stage.setScene(new Scene(root, 1250, 750));
         stage.show();
     }
+
+    @FXML
+    private void abrirConsultas() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/com/gestionbicicletas/consultas.fxml"
+                )
+        );
+
+        Parent root = loader.load();
+
+        ConsultasController controller =
+                loader.getController();
+
+        controller.setGestionTaller(gestionTaller);
+
+        Stage stage = new Stage();
+        stage.setTitle("Consultas");
+        stage.setScene(new Scene(root, 1400, 750));
+        stage.show();
+    }
 }

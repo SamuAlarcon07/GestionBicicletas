@@ -46,10 +46,12 @@
                         styleClass="boton-menu"/>
 
                 <Button text="Historial"
+                        onAction="#abrirConsultas"
                         styleClass="boton-menu"/>
 
                 <Button text="Buscar por fecha"
-                        styleClass="boton-menu"/>
+                        onAction="#abrirConsultas"
+                        styleClass="boton-menu"/>3
 
                 <Button text="Stock bajo"
                         styleClass="boton-menu"/>

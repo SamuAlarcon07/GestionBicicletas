@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gestionbicicletas.controller.ConsultasController"
+            stylesheets="@styles.css">
+
+    <top>
+
+        <HBox spacing="15"
+              alignment="CENTER_LEFT">
+
+            <padding>
+                <Insets top="20"
+                        right="25"
+                        bottom="20"
+                        left="25"/>
+            </padding>
+
+            <Button text="← Volver"
+                    onAction="#volverAlMenu"
+                    styleClass="boton-secundario"/>
+
+            <Label text="Consultas"
+                   styleClass="titulo-principal"/>
+
+        </HBox>
+
+    </top>
+
+    <center>
+
+        <HBox spacing="25">
+
+            <!-- HISTORIAL POR SERIAL -->
+
+            <VBox spacing="12"
+                  HBox.hgrow="ALWAYS"
+                  styleClass="panel">
+
+                <Label text="Historial de bicicleta"
+                       styleClass="titulo-seccion"/>
+
+                <HBox spacing="10">
+
+                    <TextField fx:id="txtSerial"
+                               promptText="Serial de bicicleta"
+                               HBox.hgrow="ALWAYS"/>
+
+                    <Button text="Buscar"
+                            onAction="#buscarHistorial"
+                            styleClass="boton-principal"/>
+
+                </HBox>
+
+                <Label fx:id="lblResultadoHistorial"
+                       text="Ingresa un serial para consultar el historial."
+                       styleClass="instruccion"/>
+
+                <TableView fx:id="tablaHistorial"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="columnaHistorialFecha"
+                                     text="Fecha"
+                                     prefWidth="85"/>
+
+                        <TableColumn fx:id="columnaHistorialHora"
+                                     text="Hora"
+                                     prefWidth="60"/>
+
+                        <TableColumn fx:id="columnaHistorialMecanico"
+                                     text="Mecánico"
+                                     prefWidth="120"/>
+
+                        <TableColumn fx:id="columnaHistorialMotivo"
+                                     text="Motivo"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="columnaHistorialDiagnostico"
+                                     text="Diagnóstico"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="columnaHistorialTrabajos"
+                                     text="Trabajos"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="columnaHistorialCosto"
+                                     text="Costo"
+                                     prefWidth="90"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+
+            <!-- BÚSQUEDA POR FECHA -->
+
+            <VBox spacing="12"
+                  HBox.hgrow="ALWAYS"
+                  styleClass="panel">
+
+                <Label text="Órdenes por fecha"
+                       styleClass="titulo-seccion"/>
+
+                <HBox spacing="10">
+
+                    <DatePicker fx:id="fechaBusqueda"
+                                promptText="Selecciona una fecha"
+                                HBox.hgrow="ALWAYS"/>
+
+                    <Button text="Buscar"
+                            onAction="#buscarPorFecha"
+                            styleClass="boton-principal"/>
+
+                </HBox>
+
+                <Label fx:id="lblResultadoFecha"
+                       text="Selecciona una fecha para consultar las órdenes."
+                       styleClass="instruccion"/>
+
+                <TableView fx:id="tablaFecha"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="columnaFecha"
+                                     text="Fecha"
+                                     prefWidth="85"/>
+
+                        <TableColumn fx:id="columnaHora"
+                                     text="Hora"
+                                     prefWidth="60"/>
+
+                        <TableColumn fx:id="columnaBicicleta"
+                                     text="Serial"
+                                     prefWidth="130"/>
+
+                        <TableColumn fx:id="columnaMecanico"
+                                     text="Mecánico"
+                                     prefWidth="120"/>
+
+                        <TableColumn fx:id="columnaMotivo"
+                                     text="Motivo"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="columnaCosto"
+                                     text="Costo"
+                                     prefWidth="90"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </HBox>
+
+    </center>
+
+    <padding>
+        <Insets top="10"
+                right="25"
+                bottom="25"
+                left="25"/>
+    </padding>
+
+</BorderPane>
