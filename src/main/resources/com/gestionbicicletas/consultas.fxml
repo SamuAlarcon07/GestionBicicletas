@@ -18,14 +18,10 @@
 
     <top>
 
-        <HBox spacing="15"
-              alignment="CENTER_LEFT">
+        <HBox spacing="15" alignment="CENTER_LEFT">
 
             <padding>
-                <Insets top="20"
-                        right="25"
-                        bottom="20"
-                        left="25"/>
+                <Insets top="20" right="25" bottom="20" left="25"/>
             </padding>
 
             <Button text="← Volver"
@@ -43,11 +39,9 @@
 
         <HBox spacing="25">
 
-            <!-- HISTORIAL POR SERIAL -->
-
             <VBox spacing="12"
-                  HBox.hgrow="ALWAYS"
-                  styleClass="panel">
+                  styleClass="panel"
+                  HBox.hgrow="ALWAYS">
 
                 <Label text="Historial de bicicleta"
                        styleClass="titulo-seccion"/>
@@ -108,11 +102,9 @@
             </VBox>
 
 
-            <!-- BÚSQUEDA POR FECHA -->
-
             <VBox spacing="12"
-                  HBox.hgrow="ALWAYS"
-                  styleClass="panel">
+                  styleClass="panel"
+                  HBox.hgrow="ALWAYS">
 
                 <Label text="Órdenes por fecha"
                        styleClass="titulo-seccion"/>

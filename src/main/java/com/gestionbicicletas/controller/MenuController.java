@@ -122,4 +122,26 @@ public class MenuController {
         stage.setScene(new Scene(root, 1400, 750));
         stage.show();
     }
+
+    @FXML
+    private void abrirRepuestos() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/com/gestionbicicletas/repuestos.fxml"
+                )
+        );
+
+        Parent root = loader.load();
+
+        RepuestoController controller =
+                loader.getController();
+
+        controller.setGestionTaller(gestionTaller);
+
+        Stage stage = new Stage();
+        stage.setTitle("Gestión de Repuestos");
+        stage.setScene(new Scene(root, 1050, 650));
+        stage.show();
+    }
 }

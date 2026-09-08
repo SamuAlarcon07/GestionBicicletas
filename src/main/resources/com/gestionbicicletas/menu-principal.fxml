@@ -51,9 +51,10 @@
 
                 <Button text="Buscar por fecha"
                         onAction="#abrirConsultas"
-                        styleClass="boton-menu"/>3
+                        styleClass="boton-menu"/>
 
                 <Button text="Stock bajo"
+                        onAction="#abrirRepuestos"
                         styleClass="boton-menu"/>
             </VBox>
 
