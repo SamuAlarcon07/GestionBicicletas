@@ -2,6 +2,8 @@ package com.gestionbicicletas.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrdenServicio {
 
@@ -13,6 +15,7 @@ public class OrdenServicio {
     private String diagnostico;
     private String trabajosRealizados;
     private double costoTotal;
+    private List<DetalleRepuesto> repuestosUtilizados;
 
     public OrdenServicio(LocalDate fechaIngreso,
                          LocalTime horaIngreso,
@@ -31,6 +34,7 @@ public class OrdenServicio {
         this.diagnostico = diagnostico;
         this.trabajosRealizados = trabajosRealizados;
         this.costoTotal = costoTotal;
+        this.repuestosUtilizados = new ArrayList<>();
     }
 
     public LocalDate getFechaIngreso() {
@@ -95,5 +99,14 @@ public class OrdenServicio {
 
     public void setCostoTotal(double costoTotal) {
         this.costoTotal = costoTotal;
+    }
+
+    public List<DetalleRepuesto> getRepuestosUtilizados() {
+        return repuestosUtilizados;
+    }
+
+    public void agregarRepuesto(Repuesto repuesto, int cantidad) {
+        DetalleRepuesto detalle = new DetalleRepuesto(repuesto, cantidad);
+        repuestosUtilizados.add(detalle);
     }
 }

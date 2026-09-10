@@ -1,6 +1,7 @@
 package com.gestionbicicletas.controller;
 
 import com.gestionbicicletas.model.OrdenServicio;
+import com.gestionbicicletas.model.DetalleRepuesto;
 import com.gestionbicicletas.service.GestionTaller;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -49,6 +50,9 @@ public class ConsultasController {
     @FXML
     private TableColumn<OrdenServicio, String> columnaHistorialCosto;
 
+    @FXML
+    private TableColumn<OrdenServicio, String> columnaHistorialRepuestos;
+
     // -------------------------
     // BÚSQUEDA POR FECHA
     // -------------------------
@@ -83,50 +87,64 @@ public class ConsultasController {
     @FXML
     private Label lblResultadoFecha;
 
+
     public void setGestionTaller(GestionTaller gestionTaller) {
+
         this.gestionTaller = gestionTaller;
     }
+
 
     @FXML
     public void initialize() {
 
-        // Tabla de historial
+        // =========================
+        // TABLA DE HISTORIAL
+        // =========================
 
         columnaHistorialFecha.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getFechaIngreso().toString()
+                        datos.getValue()
+                                .getFechaIngreso()
+                                .toString()
                 )
         );
 
         columnaHistorialHora.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getHoraIngreso().format(
-                                DateTimeFormatter.ofPattern("HH:mm")
-                        )
+                        datos.getValue()
+                                .getHoraIngreso()
+                                .format(
+                                        DateTimeFormatter.ofPattern("HH:mm")
+                                )
                 )
         );
 
         columnaHistorialMecanico.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getMecanico().getNombreCompleto()
+                        datos.getValue()
+                                .getMecanico()
+                                .getNombreCompleto()
                 )
         );
 
         columnaHistorialMotivo.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getMotivoServicio()
+                        datos.getValue()
+                                .getMotivoServicio()
                 )
         );
 
         columnaHistorialDiagnostico.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getDiagnostico()
+                        datos.getValue()
+                                .getDiagnostico()
                 )
         );
 
         columnaHistorialTrabajos.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getTrabajosRealizados()
+                        datos.getValue()
+                                .getTrabajosRealizados()
                 )
         );
 
@@ -134,42 +152,90 @@ public class ConsultasController {
                 datos -> new javafx.beans.property.SimpleStringProperty(
                         String.format(
                                 "$%,.0f",
-                                datos.getValue().getCostoTotal()
+                                datos.getValue()
+                                        .getCostoTotal()
                         )
                 )
         );
 
-        // Tabla de búsqueda por fecha
+
+        // -------------------------
+        // REPUESTOS DEL HISTORIAL
+        // -------------------------
+
+        columnaHistorialRepuestos.setCellValueFactory(
+                datos -> {
+
+                    StringBuilder repuestos =
+                            new StringBuilder();
+
+                    for (DetalleRepuesto detalle :
+                            datos.getValue()
+                                    .getRepuestosUtilizados()) {
+
+                        if (repuestos.length() > 0) {
+                            repuestos.append(", ");
+                        }
+
+                        repuestos.append(
+                                        detalle.getRepuesto().getNombre()
+                                )
+                                .append(" (")
+                                .append(
+                                        detalle.getCantidadUtilizada()
+                                )
+                                .append(")");
+                    }
+
+                    return new javafx.beans.property.SimpleStringProperty(
+                            repuestos.toString()
+                    );
+                }
+        );
+
+
+        // =========================
+        // TABLA DE BÚSQUEDA POR FECHA
+        // =========================
 
         columnaFecha.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getFechaIngreso().toString()
+                        datos.getValue()
+                                .getFechaIngreso()
+                                .toString()
                 )
         );
 
         columnaHora.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getHoraIngreso().format(
-                                DateTimeFormatter.ofPattern("HH:mm")
-                        )
+                        datos.getValue()
+                                .getHoraIngreso()
+                                .format(
+                                        DateTimeFormatter.ofPattern("HH:mm")
+                                )
                 )
         );
 
         columnaBicicleta.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getBicicleta().getSerial()
+                        datos.getValue()
+                                .getBicicleta()
+                                .getSerial()
                 )
         );
 
         columnaMecanico.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getMecanico().getNombreCompleto()
+                        datos.getValue()
+                                .getMecanico()
+                                .getNombreCompleto()
                 )
         );
 
         columnaMotivo.setCellValueFactory(
                 datos -> new javafx.beans.property.SimpleStringProperty(
-                        datos.getValue().getMotivoServicio()
+                        datos.getValue()
+                                .getMotivoServicio()
                 )
         );
 
@@ -177,11 +243,17 @@ public class ConsultasController {
                 datos -> new javafx.beans.property.SimpleStringProperty(
                         String.format(
                                 "$%,.0f",
-                                datos.getValue().getCostoTotal()
+                                datos.getValue()
+                                        .getCostoTotal()
                         )
                 )
         );
     }
+
+
+    // =========================
+    // BUSCAR HISTORIAL
+    // =========================
 
     @FXML
     private void buscarHistorial() {
@@ -210,7 +282,8 @@ public class ConsultasController {
             return;
         }
 
-        var historial = gestionTaller.buscarHistorialPorSerial(serial);
+        var historial =
+                gestionTaller.buscarHistorialPorSerial(serial);
 
         tablaHistorial.setItems(
                 FXCollections.observableArrayList(historial)
@@ -220,6 +293,11 @@ public class ConsultasController {
                 "Órdenes encontradas: " + historial.size()
         );
     }
+
+
+    // =========================
+    // BUSCAR POR FECHA
+    // =========================
 
     @FXML
     private void buscarPorFecha() {
@@ -235,9 +313,10 @@ public class ConsultasController {
             return;
         }
 
-        var resultado = gestionTaller.buscarOrdenesPorFecha(
-                fechaBusqueda.getValue()
-        );
+        var resultado =
+                gestionTaller.buscarOrdenesPorFecha(
+                        fechaBusqueda.getValue()
+                );
 
         tablaFecha.setItems(
                 FXCollections.observableArrayList(resultado)
@@ -248,12 +327,26 @@ public class ConsultasController {
         );
     }
 
+
+    // =========================
+    // VOLVER AL MENÚ
+    // =========================
+
     @FXML
     private void volverAlMenu() {
 
-        Stage stage = (Stage) tablaHistorial.getScene().getWindow();
+        Stage stage =
+                (Stage) tablaHistorial
+                        .getScene()
+                        .getWindow();
+
         stage.close();
     }
+
+
+    // =========================
+    // MOSTRAR ALERTAS
+    // =========================
 
     private void mostrarAlerta(
             Alert.AlertType tipo,
@@ -261,9 +354,13 @@ public class ConsultasController {
             String mensaje) {
 
         Alert alerta = new Alert(tipo);
+
         alerta.setTitle(titulo);
+
         alerta.setHeaderText(null);
+
         alerta.setContentText(mensaje);
+
         alerta.showAndWait();
     }
 }

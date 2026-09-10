@@ -28,6 +28,23 @@ public class Repuesto {
         this.cantidad = cantidad;
     }
 
+    public void disminuirCantidad(int cantidad) {
+
+        if (cantidad <= 0) {
+            throw new IllegalArgumentException(
+                    "La cantidad a disminuir debe ser mayor que cero."
+            );
+        }
+
+        if (cantidad > this.cantidad) {
+            throw new IllegalArgumentException(
+                    "No hay suficiente stock del repuesto: " + nombre
+            );
+        }
+
+        this.cantidad -= cantidad;
+    }
+
     public int getStockMinimo() {
         return stockMinimo;
     }

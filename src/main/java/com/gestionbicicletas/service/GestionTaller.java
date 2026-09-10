@@ -1,10 +1,6 @@
 package com.gestionbicicletas.service;
 
-import com.gestionbicicletas.model.Bicicleta;
-import com.gestionbicicletas.model.Cliente;
-import com.gestionbicicletas.model.Mecanico;
-import com.gestionbicicletas.model.OrdenServicio;
-import com.gestionbicicletas.model.Repuesto;
+import com.gestionbicicletas.model.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -167,6 +163,10 @@ public class GestionTaller {
 
     public void registrarOrdenServicio(OrdenServicio orden) {
 
+        if (orden == null) {
+            throw new IllegalArgumentException("La orden no puede ser nula.");
+        }
+
         if (orden.getBicicleta() == null) {
             throw new IllegalArgumentException(
                     "La orden debe tener una bicicleta."
@@ -179,6 +179,30 @@ public class GestionTaller {
             );
         }
 
+        // Verificar que haya suficiente stock
+        for (DetalleRepuesto detalle : orden.getRepuestosUtilizados()) {
+
+            Repuesto repuesto = detalle.getRepuesto();
+            int cantidad = detalle.getCantidadUtilizada();
+
+            if (cantidad > repuesto.getCantidad()) {
+                throw new IllegalArgumentException(
+                        "No hay suficiente stock de: "
+                                + repuesto.getNombre()
+                );
+            }
+        }
+
+        // Descontar los repuestos utilizados
+        for (DetalleRepuesto detalle : orden.getRepuestosUtilizados()) {
+
+            Repuesto repuesto = detalle.getRepuesto();
+            int cantidad = detalle.getCantidadUtilizada();
+
+            repuesto.disminuirCantidad(cantidad);
+        }
+
+        // Registrar la orden
         ordenesServicio.add(orden);
 
         Bicicleta bicicleta = orden.getBicicleta();

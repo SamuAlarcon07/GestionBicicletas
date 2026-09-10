@@ -18,10 +18,14 @@
 
     <top>
 
-        <HBox spacing="15" alignment="CENTER_LEFT">
+        <HBox spacing="15"
+              alignment="CENTER_LEFT">
 
             <padding>
-                <Insets top="20" right="25" bottom="20" left="25"/>
+                <Insets top="20"
+                        right="25"
+                        bottom="20"
+                        left="25"/>
             </padding>
 
             <Button text="← Volver"
@@ -35,9 +39,14 @@
 
     </top>
 
+
     <center>
 
         <HBox spacing="25">
+
+            <!-- ========================= -->
+            <!-- HISTORIAL POR SERIAL -->
+            <!-- ========================= -->
 
             <VBox spacing="12"
                   styleClass="panel"
@@ -45,6 +54,7 @@
 
                 <Label text="Historial de bicicleta"
                        styleClass="titulo-seccion"/>
+
 
                 <HBox spacing="10">
 
@@ -58,9 +68,11 @@
 
                 </HBox>
 
+
                 <Label fx:id="lblResultadoHistorial"
                        text="Ingresa un serial para consultar el historial."
                        styleClass="instruccion"/>
+
 
                 <TableView fx:id="tablaHistorial"
                            VBox.vgrow="ALWAYS">
@@ -91,9 +103,15 @@
                                      text="Trabajos"
                                      prefWidth="150"/>
 
+                        <TableColumn fx:id="columnaHistorialRepuestos"
+                                     text="Repuestos utilizados"
+                                     prefWidth="220"/>
+
                         <TableColumn fx:id="columnaHistorialCosto"
                                      text="Costo"
                                      prefWidth="90"/>
+
+
 
                     </columns>
 
@@ -102,12 +120,17 @@
             </VBox>
 
 
+            <!-- ========================= -->
+            <!-- BÚSQUEDA POR FECHA -->
+            <!-- ========================= -->
+
             <VBox spacing="12"
                   styleClass="panel"
                   HBox.hgrow="ALWAYS">
 
                 <Label text="Órdenes por fecha"
                        styleClass="titulo-seccion"/>
+
 
                 <HBox spacing="10">
 
@@ -121,9 +144,11 @@
 
                 </HBox>
 
+
                 <Label fx:id="lblResultadoFecha"
                        text="Selecciona una fecha para consultar las órdenes."
                        styleClass="instruccion"/>
+
 
                 <TableView fx:id="tablaFecha"
                            VBox.vgrow="ALWAYS">
@@ -164,11 +189,14 @@
 
     </center>
 
+
     <padding>
+
         <Insets top="10"
                 right="25"
                 bottom="25"
                 left="25"/>
+
     </padding>
 
 </BorderPane>
