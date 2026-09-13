@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ClienteTest {
     @Test
-    void deberiaCrearClienteCorrectamente() {
+    void CrearClienteCorrectamente() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",
@@ -22,7 +22,7 @@ class ClienteTest {
     }
 
     @Test
-    void deberiaActualizarLosDatosDelCliente() {
+    void ActualizarLosDatosDelCliente() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",
@@ -43,7 +43,7 @@ class ClienteTest {
     }
 
     @Test
-    void deberiaIniciarSinBicicletas() {
+    void IniciarSinBicicletas() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",
@@ -56,7 +56,7 @@ class ClienteTest {
     }
 
     @Test
-    void deberiaAgregarBicicleta() {
+    void AgregarBicicleta() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",
@@ -107,7 +107,7 @@ class ClienteTest {
     }
 
     @Test
-    void deberiaMostrarCorrectamenteElToString() {
+    void MostrarCorrectamenteElToString() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",

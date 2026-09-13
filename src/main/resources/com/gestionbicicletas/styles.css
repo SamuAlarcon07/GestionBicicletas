@@ -1,3 +1,7 @@
+/* ========================================================= */
+/* ESTILO GENERAL                                             */
+/* ========================================================= */
+
 .root {
     -fx-font-family: "Segoe UI";
     -fx-background-color: #f4f7f5;
@@ -55,17 +59,19 @@
 }
 
 .boton-menu:hover {
-    -fx-background-color: #167452;
+    -fx-background-color: #197a5a;
 }
 
 .boton-activo {
-    -fx-background-color: #209261;
+    -fx-background-color: #23865f;
+    -fx-background-radius: 8px;
+    -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
 
 /* ========================================================= */
-/* USUARIO                                                    */
+/* USUARIO                                                     */
 /* ========================================================= */
 
 .usuario-menu {
@@ -138,21 +144,14 @@
 /* ========================================================= */
 
 .banner-container {
-    -fx-background-color: #064e3b;
-    -fx-background-radius: 18px;
-    -fx-border-radius: 18px;
-
-    -fx-pref-height: 330px;
-    -fx-min-height: 300px;
-    -fx-max-height: 330px;
-
+    -fx-background-color: #075640;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
     -fx-padding: 0;
-
-    -fx-overflow: hidden;
 }
 
-.imagen-banner {
-    -fx-background-radius: 18px;
+.banner-container .image-view {
+    -fx-background-radius: 20px;
 }
 
 
@@ -181,6 +180,7 @@
     -fx-background-color: white;
 
     -fx-background-radius: 14px;
+
     -fx-border-color: #dce9e4;
     -fx-border-radius: 14px;
     -fx-border-width: 1px;
@@ -205,6 +205,7 @@
 
 .tarjeta-acceso:hover {
     -fx-border-color: #1ca56f;
+
     -fx-effect: dropshadow(
             gaussian,
             rgba(0,0,0,0.14),
@@ -279,38 +280,249 @@
     -fx-text-fill: #52776c;
     -fx-font-size: 13px;
 }
-/* ============================= */
-/* BANNER PRINCIPAL */
-/* ============================= */
 
-.banner-container {
-    -fx-background-color: #075640;
-    -fx-background-radius: 20px;
-    -fx-padding: 0;
-    -fx-border-radius: 20px;
-    -fx-overflow: hidden;
+
+/* ========================================================= */
+/* INTERFACES DE GESTIÓN                                      */
+/* ========================================================= */
+
+/* Panel blanco de cada sección */
+
+.panel {
+    -fx-background-color: white;
+
+    -fx-background-radius: 14px;
+
+    -fx-border-color: #dce9e4;
+    -fx-border-radius: 14px;
+    -fx-border-width: 1px;
+
+    -fx-padding: 25px;
+
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0,0,0,0.06),
+            8,
+            0,
+            0,
+            2
+    );
 }
 
-.banner-container .image-view {
-    -fx-background-radius: 20px;
-}
 
-.boton-menu {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-font-size: 15px;
-    -fx-alignment: CENTER_LEFT;
-    -fx-padding: 10px 12px;
-}
+/* ========================================================= */
+/* TÍTULOS DE SECCIÓN                                          */
+/* ========================================================= */
 
-.boton-menu:hover {
-    -fx-background-color: #197a5a;
-    -fx-background-radius: 8px;
-}
-
-.boton-activo {
-    -fx-background-color: #23865f;
-    -fx-background-radius: 8px;
-    -fx-text-fill: white;
+.titulo-seccion {
+    -fx-text-fill: #073b32;
+    -fx-font-size: 22px;
     -fx-font-weight: bold;
+}
+
+
+/* ========================================================= */
+/* CAMPOS DE TEXTO                                             */
+/* ========================================================= */
+
+.text-field {
+    -fx-background-color: white;
+
+    -fx-border-color: #cbd9d4;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+
+    -fx-padding: 8px 10px;
+
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-border-color: #1ca56f;
+    -fx-border-width: 2px;
+}
+
+
+/* ========================================================= */
+/* BOTÓN PRINCIPAL                                             */
+/* ========================================================= */
+
+.boton-principal {
+    -fx-background-color: #198754;
+    -fx-text-fill: white;
+
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+
+    -fx-padding: 10px 18px;
+
+    -fx-cursor: hand;
+}
+
+.boton-principal:hover {
+    -fx-background-color: #157347;
+}
+
+
+/* ========================================================= */
+/* BOTÓN SECUNDARIO                                           */
+/* ========================================================= */
+
+.boton-secundario {
+    -fx-background-color: #e5f3ec;
+    -fx-text-fill: #07563f;
+
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+
+    -fx-padding: 10px 18px;
+
+    -fx-cursor: hand;
+}
+
+.boton-secundario:hover {
+    -fx-background-color: #d1eadd;
+}
+
+
+/* ========================================================= */
+/* BOTÓN ELIMINAR                                              */
+/* ========================================================= */
+
+.boton-eliminar {
+    -fx-background-color: #dc4c4c;
+    -fx-text-fill: white;
+
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+
+    -fx-padding: 10px 18px;
+
+    -fx-cursor: hand;
+}
+
+.boton-eliminar:hover {
+    -fx-background-color: #c73e3e;
+}
+
+
+/* ========================================================= */
+/* BOTÓN VOLVER                                                */
+/* ========================================================= */
+
+.boton-secundario:hover {
+    -fx-background-color: #d5ebe1;
+}
+
+
+/* ========================================================= */
+/* TABLAS                                                       */
+/* ========================================================= */
+
+.table-view {
+    -fx-background-color: white;
+
+    -fx-border-color: #dce9e4;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #e5f3ec;
+}
+
+.table-view .column-header {
+    -fx-background-color: #e5f3ec;
+    -fx-border-color: #d1e5dd;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #073b32;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+}
+
+.table-row-cell:filled:hover {
+    -fx-background-color: #f0f8f4;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #d9f0e5;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #073b32;
+}
+
+
+/* ========================================================= */
+/* COMBOBOX                                                    */
+/* ========================================================= */
+
+.combo-box {
+    -fx-background-color: white;
+
+    -fx-border-color: #cbd9d4;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+
+    -fx-font-size: 14px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #1ca56f;
+}
+
+
+/* ========================================================= */
+/* DATE PICKER                                                 */
+/* ========================================================= */
+
+.date-picker {
+    -fx-background-color: white;
+}
+
+.date-picker .text-field {
+    -fx-border-color: #cbd9d4;
+}
+
+
+/* ========================================================= */
+/* TEXT AREA                                                   */
+/* ========================================================= */
+
+.text-area {
+    -fx-background-color: white;
+
+    -fx-border-color: #cbd9d4;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+
+    -fx-font-size: 14px;
+}
+
+.text-area:focused {
+    -fx-border-color: #1ca56f;
+}
+
+
+/* ========================================================= */
+/* LABELS DE FORMULARIOS                                       */
+/* ========================================================= */
+
+.panel .label {
+    -fx-text-fill: #26463d;
+    -fx-font-size: 14px;
 }

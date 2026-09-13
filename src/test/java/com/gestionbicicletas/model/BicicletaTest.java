@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BicicletaTest {
 
     @Test
-    void deberiaCrearBicicletaCorrectamente() {
+    void CrearBicicletaCorrectamente() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",
@@ -38,7 +38,7 @@ class BicicletaTest {
     }
 
     @Test
-    void deberiaActualizarLosDatosDeLaBicicleta() {
+    void ActualizarLosDatosDeLaBicicleta() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",
@@ -70,7 +70,7 @@ class BicicletaTest {
     }
 
     @Test
-    void deberiaIniciarSinOrdenesDeServicio() {
+    void IniciarSinOrdenesDeServicio() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",
@@ -92,7 +92,7 @@ class BicicletaTest {
     }
 
     @Test
-    void deberiaAgregarOrdenDeServicio() {
+    void AgregarOrdenDeServicio() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",
@@ -177,7 +177,7 @@ class BicicletaTest {
     }
 
     @Test
-    void deberiaMostrarCorrectamenteElToString() {
+    void MostrarCorrectamenteElToString() {
 
         Cliente cliente = new Cliente(
                 "Carlos Perez",

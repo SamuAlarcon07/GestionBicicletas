@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MecanicoTest {
 
     @Test
-    void deberiaCrearMecanicoCorrectamente() {
+    void CrearMecanicoCorrectamente() {
 
         Mecanico mecanico = new Mecanico(
                 "Carlos Perez",
@@ -21,7 +21,7 @@ class MecanicoTest {
     }
 
     @Test
-    void deberiaActualizarLosDatosDelMecanico() {
+    void ActualizarLosDatosDelMecanico() {
 
         Mecanico mecanico = new Mecanico(
                 "Carlos Perez",
@@ -39,7 +39,7 @@ class MecanicoTest {
     }
 
     @Test
-    void deberiaMostrarCorrectamenteElToString() {
+    void MostrarCorrectamenteElToString() {
 
         Mecanico mecanico = new Mecanico(
                 "Carlos Perez",
