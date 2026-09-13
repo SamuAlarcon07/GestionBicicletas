@@ -119,21 +119,32 @@
 
                 </GridPane>
 
-                <HBox spacing="10">
+                <VBox spacing="10">
 
-                    <Button text="Registrar"
-                            onAction="#registrarBicicleta"
-                            styleClass="boton-principal"/>
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Button
+                                text="Registrar"
+                                styleClass="boton-principal"
+                                prefWidth="120"
+                                minWidth="120"
+                                onAction="#registrarBicicleta"/>
 
-                    <Button text="Limpiar"
-                            onAction="#limpiarCampos"
-                            styleClass="boton-secundario"/>
+                        <Button
+                                text="Limpiar"
+                                styleClass="boton-secundario"
+                                prefWidth="100"
+                                minWidth="100"
+                                onAction="#limpiarCampos"/>
+                    </HBox>
 
-                    <Button text="Eliminar seleccionado"
-                            onAction="#eliminarBicicleta"
-                            styleClass="boton-eliminar"/>
+                    <Button
+                            text="Eliminar seleccionado"
+                            styleClass="boton-eliminar"
+                            prefWidth="230"
+                            minWidth="230"
+                            onAction="#eliminarBicicleta"/>
 
-                </HBox>
+                </VBox>
 
             </VBox>
 
