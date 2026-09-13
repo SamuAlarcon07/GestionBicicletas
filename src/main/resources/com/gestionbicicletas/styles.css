@@ -1,188 +1,316 @@
 .root {
     -fx-font-family: "Segoe UI";
-    -fx-background-color: #f4f6f8;
+    -fx-background-color: #f4f7f5;
 }
 
-/* MENÚ LATERAL */
+
+/* ========================================================= */
+/* MENÚ LATERAL                                               */
+/* ========================================================= */
 
 .menu-lateral {
-    -fx-background-color: #1f2937;
+    -fx-background-color: #07563f;
+}
+
+.logo-menu {
+    -fx-font-size: 38px;
+    -fx-text-fill: white;
 }
 
 .titulo-menu {
     -fx-text-fill: white;
-    -fx-font-size: 26px;
+    -fx-font-size: 27px;
     -fx-font-weight: bold;
 }
 
 .subtitulo-menu {
-    -fx-text-fill: #9ca3af;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 0 0 15 0;
-}
-
-.boton-menu {
-    -fx-background-color: transparent;
-    -fx-text-fill: #e5e7eb;
-    -fx-font-size: 15px;
-    -fx-alignment: CENTER_LEFT;
-    -fx-pref-height: 45px;
-    -fx-pref-width: 200px;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-}
-
-.boton-menu:hover {
-    -fx-background-color: #374151;
-    -fx-text-fill: white;
-}
-
-/* CONTENIDO PRINCIPAL */
-
-.contenido-principal {
-    -fx-background-color: #f4f6f8;
-}
-
-.titulo-principal {
-    -fx-text-fill: #1f2937;
-    -fx-font-size: 32px;
-    -fx-font-weight: bold;
-}
-
-.descripcion-principal {
-    -fx-text-fill: #4b5563;
-    -fx-font-size: 18px;
-}
-
-.instruccion {
-    -fx-text-fill: #6b7280;
-    -fx-font-size: 14px;
-    -fx-padding: 20 0 0 0;
-}.root {
-     -fx-font-family: "Segoe UI";
-     -fx-background-color: #f4f6f8;
- }
-
-/* MENÚ LATERAL */
-
-.menu-lateral {
-    -fx-background-color: #1f2937;
-}
-
-.titulo-menu {
-    -fx-text-fill: white;
-    -fx-font-size: 26px;
-    -fx-font-weight: bold;
-}
-
-.subtitulo-menu {
-    -fx-text-fill: #9ca3af;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 0 0 15 0;
-}
-
-.boton-menu {
-    -fx-background-color: transparent;
-    -fx-text-fill: #e5e7eb;
-    -fx-font-size: 15px;
-    -fx-alignment: CENTER_LEFT;
-    -fx-pref-height: 45px;
-    -fx-pref-width: 200px;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-}
-
-.boton-menu:hover {
-    -fx-background-color: #374151;
-    -fx-text-fill: white;
-}
-
-/* CONTENIDO PRINCIPAL */
-
-.contenido-principal {
-    -fx-background-color: #f4f6f8;
-}
-
-.titulo-principal {
-    -fx-text-fill: #1f2937;
-    -fx-font-size: 32px;
-    -fx-font-weight: bold;
-}
-
-.descripcion-principal {
-    -fx-text-fill: #4b5563;
-    -fx-font-size: 18px;
-}
-
-.instruccion {
-    -fx-text-fill: #6b7280;
-    -fx-font-size: 14px;
-    -fx-padding: 20 0 0 0;
-}
-
-/* PANELES */
-
-.panel {
-    -fx-background-color: white;
-    -fx-background-radius: 8px;
-    -fx-padding: 20px;
-    -fx-border-color: #e5e7eb;
-    -fx-border-radius: 8px;
-}
-
-.titulo-seccion {
-    -fx-text-fill: #1f2937;
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
-}
-
-/* BOTONES */
-
-.boton-principal {
-    -fx-background-color: #2563eb;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 10px 20px;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-}
-
-.boton-principal:hover {
-    -fx-background-color: #1d4ed8;
-}
-
-.boton-secundario {
-    -fx-background-color: #e5e7eb;
-    -fx-text-fill: #1f2937;
-    -fx-font-size: 14px;
-    -fx-padding: 9px 16px;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-}
-
-.boton-secundario:hover {
-    -fx-background-color: #d1d5db;
-}
-
-.boton-eliminar {
-    -fx-background-color: #dc2626;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 10px 15px;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-}
-
-.boton-eliminar:hover {
-    -fx-background-color: #b91c1c;
-}
-
-.etiqueta-formulario {
-    -fx-text-fill: #374151;
+    -fx-text-fill: #d1fae5;
     -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.separador-menu {
+    -fx-text-fill: #8fd3bb;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 30 0 8 5;
+}
+
+
+/* ========================================================= */
+/* BOTONES DEL MENÚ                                           */
+/* ========================================================= */
+
+.boton-menu {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-pref-height: 44px;
+    -fx-pref-width: 245px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 0 12 0 12;
+}
+
+.boton-menu:hover {
+    -fx-background-color: #167452;
+}
+
+.boton-activo {
+    -fx-background-color: #209261;
+    -fx-font-weight: bold;
+}
+
+
+/* ========================================================= */
+/* USUARIO                                                    */
+/* ========================================================= */
+
+.usuario-menu {
+    -fx-border-color: rgba(255,255,255,0.25) transparent transparent transparent;
+    -fx-padding: 20 5 0 5;
+}
+
+.icono-usuario {
+    -fx-text-fill: #d1fae5;
+    -fx-font-size: 20px;
+}
+
+.nombre-usuario {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.rol-usuario {
+    -fx-text-fill: #a7d9c6;
+    -fx-font-size: 12px;
+}
+
+
+/* ========================================================= */
+/* CONTENIDO PRINCIPAL                                        */
+/* ========================================================= */
+
+.contenido-principal {
+    -fx-background-color: #f4f7f5;
+    -fx-min-width: 0;
+}
+
+.saludo {
+    -fx-text-fill: #52786d;
+    -fx-font-size: 15px;
+}
+
+.titulo-principal {
+    -fx-text-fill: #073b32;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.descripcion-principal {
+    -fx-text-fill: #55756d;
+    -fx-font-size: 16px;
+}
+
+
+/* ========================================================= */
+/* FECHA Y HORA                                               */
+/* ========================================================= */
+
+.fecha {
+    -fx-text-fill: #1f2937;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.hora {
+    -fx-text-fill: #111827;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+
+/* ========================================================= */
+/* BANNER                                                      */
+/* ========================================================= */
+
+.banner-container {
+    -fx-background-color: #064e3b;
+    -fx-background-radius: 18px;
+    -fx-border-radius: 18px;
+
+    -fx-pref-height: 330px;
+    -fx-min-height: 300px;
+    -fx-max-height: 330px;
+
+    -fx-padding: 0;
+
+    -fx-overflow: hidden;
+}
+
+.imagen-banner {
+    -fx-background-radius: 18px;
+}
+
+
+/* ========================================================= */
+/* ACCESOS RÁPIDOS                                             */
+/* ========================================================= */
+
+.titulo-accesos {
+    -fx-text-fill: #073b32;
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+}
+
+.frase {
+    -fx-text-fill: #658078;
+    -fx-font-size: 14px;
+    -fx-font-style: italic;
+}
+
+
+/* ========================================================= */
+/* TARJETAS                                                    */
+/* ========================================================= */
+
+.tarjeta-acceso {
+    -fx-background-color: white;
+
+    -fx-background-radius: 14px;
+    -fx-border-color: #dce9e4;
+    -fx-border-radius: 14px;
+    -fx-border-width: 1px;
+
+    -fx-padding: 20px;
+
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+
+    -fx-min-height: 165px;
+    -fx-pref-height: 165px;
+
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0,0,0,0.08),
+            8,
+            0,
+            0,
+            2
+    );
+}
+
+.tarjeta-acceso:hover {
+    -fx-border-color: #1ca56f;
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0,0,0,0.14),
+            10,
+            0,
+            0,
+            3
+    );
+}
+
+
+/* ========================================================= */
+/* ICONOS DE TARJETAS                                          */
+/* ========================================================= */
+
+.icono-tarjeta {
+    -fx-text-fill: #064e3b;
+    -fx-font-size: 30px;
+}
+
+
+/* ========================================================= */
+/* TEXTO DE TARJETAS                                           */
+/* ========================================================= */
+
+.titulo-tarjeta {
+    -fx-text-fill: #073b32;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.descripcion-tarjeta {
+    -fx-text-fill: #71847e;
+    -fx-font-size: 13px;
+}
+
+
+/* ========================================================= */
+/* FLECHA DE TARJETAS                                          */
+/* ========================================================= */
+
+.boton-flecha {
+    -fx-background-color: transparent;
+    -fx-text-fill: #11945f;
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.boton-flecha:hover {
+    -fx-text-fill: #087548;
+}
+
+
+/* ========================================================= */
+/* MENSAJE INFERIOR                                            */
+/* ========================================================= */
+
+.mensaje-inferior {
+    -fx-background-color: #e5f3ec;
+    -fx-background-radius: 10px;
+    -fx-padding: 13px 18px;
+}
+
+.icono-mensaje {
+    -fx-text-fill: #47806c;
+    -fx-font-size: 16px;
+}
+
+.texto-mensaje {
+    -fx-text-fill: #52776c;
+    -fx-font-size: 13px;
+}
+/* ============================= */
+/* BANNER PRINCIPAL */
+/* ============================= */
+
+.banner-container {
+    -fx-background-color: #075640;
+    -fx-background-radius: 20px;
+    -fx-padding: 0;
+    -fx-border-radius: 20px;
+    -fx-overflow: hidden;
+}
+
+.banner-container .image-view {
+    -fx-background-radius: 20px;
+}
+
+.boton-menu {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10px 12px;
+}
+
+.boton-menu:hover {
+    -fx-background-color: #197a5a;
+    -fx-background-radius: 8px;
+}
+
+.boton-activo {
+    -fx-background-color: #23865f;
+    -fx-background-radius: 8px;
+    -fx-text-fill: white;
     -fx-font-weight: bold;
 }

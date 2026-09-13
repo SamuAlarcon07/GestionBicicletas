@@ -3,79 +3,356 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.gestionbicicletas.controller.MenuController"
             stylesheets="@styles.css">
 
+
+    <!-- ===================================================== -->
+    <!-- MENÚ LATERAL                                         -->
+    <!-- ===================================================== -->
+
     <left>
-        <VBox prefWidth="240"
+
+        <VBox prefWidth="285"
               spacing="10"
               styleClass="menu-lateral">
 
             <padding>
-                <Insets top="30" right="20" bottom="30" left="20"/>
+                <Insets top="25"
+                        right="20"
+                        bottom="25"
+                        left="20"/>
             </padding>
 
-            <Label text="GESTIÓN"
+
+            <!-- LOGO -->
+
+            <Label text="🚲"
+                   styleClass="logo-menu"/>
+
+            <Label text="TallerBicicletas"
                    styleClass="titulo-menu"/>
 
-            <Label text="BICICLETAS"
+            <Label text="GESTIÓN DE TALLER"
                    styleClass="subtitulo-menu"/>
 
-            <VBox spacing="8"
-                  VBox.vgrow="ALWAYS">
 
-                <Button text="Clientes"
-                        onAction="#abrirClientes"
-                        styleClass="boton-menu"/>
+            <!-- MENÚ -->
 
-                <Button text="Bicicletas"
-                        onAction="#abrirBicicletas"
-                        styleClass="boton-menu"/>
+            <Label text="MENÚ PRINCIPAL"
+                   styleClass="separador-menu"/>
 
-                <Button text="Mecánicos"
-                        onAction="#abrirMecanicos"
-                        styleClass="boton-menu"/>
 
-                <Button text="Órdenes de servicio"
-                        onAction="#abrirOrdenes"
-                        styleClass="boton-menu"/>
+            <Label text="⌂   Inicio"
+                   style="-fx-text-fill: white;
+              -fx-font-size: 15px;
+              -fx-font-weight: bold;
+              -fx-padding: 10px 12px;
+              -fx-background-color: #23865f;
+              -fx-background-radius: 8px;"
+                   maxWidth="Infinity"/>
 
-                <Button text="Historial"
-                        onAction="#abrirConsultas"
-                        styleClass="boton-menu"/>
 
-                <Button text="Buscar por fecha"
-                        onAction="#abrirConsultas"
-                        styleClass="boton-menu"/>
+            <Button text="♟   Clientes"
+                    onAction="#abrirClientes"
+                    styleClass="boton-menu"/>
 
-                <Button text="Stock bajo"
-                        onAction="#abrirRepuestos"
-                        styleClass="boton-menu"/>
+
+            <Button text="♧   Bicicletas"
+                    onAction="#abrirBicicletas"
+                    styleClass="boton-menu"/>
+
+
+            <Button text="⚒   Mecánicos"
+                    onAction="#abrirMecanicos"
+                    styleClass="boton-menu"/>
+
+
+            <Button text="▣   Órdenes de servicio"
+                    onAction="#abrirOrdenes"
+                    styleClass="boton-menu"/>
+
+
+            <Button text="⌕   Consultas"
+                    onAction="#abrirConsultas"
+                    styleClass="boton-menu"/>
+
+
+            <Button text="▣   Repuestos"
+                    onAction="#abrirRepuestos"
+                    styleClass="boton-menu"/>
+
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+
+            <!-- USUARIO -->
+
+            <VBox spacing="3"
+                  styleClass="usuario-menu">
+
+                <Label text="●"
+                       styleClass="icono-usuario"/>
+
+                <Label text="Administrador"
+                       styleClass="nombre-usuario"/>
+
+                <Label text="Sistema de gestión"
+                       styleClass="rol-usuario"/>
+
             </VBox>
 
         </VBox>
+
     </left>
 
+
+    <!-- ===================================================== -->
+    <!-- CONTENIDO PRINCIPAL                                  -->
+    <!-- ===================================================== -->
+
     <center>
-        <VBox alignment="CENTER"
-              spacing="15"
+
+        <VBox spacing="20"
+              minWidth="0"
               styleClass="contenido-principal">
 
-            <Label text="Gestión de Bicicletas"
-                   styleClass="titulo-principal"/>
+            <padding>
+                <Insets top="20"
+                        right="25"
+                        bottom="25"
+                        left="25"/>
+            </padding>
 
-            <Label text="Sistema de gestión para taller de bicicletas"
-                   styleClass="descripcion-principal"/>
 
-            <Label text="Selecciona una opción del menú para comenzar"
-                   styleClass="instruccion"/>
+            <!-- ================================================= -->
+            <!-- ENCABEZADO                                        -->
+            <!-- ================================================= -->
+
+            <HBox alignment="CENTER_LEFT"
+                  spacing="10">
+
+                <VBox spacing="2">
+
+                    <Label text="¡Hola de nuevo!"
+                           styleClass="saludo"/>
+
+                    <Label text="Bienvenido al Taller de Bicicletas"
+                           styleClass="titulo-principal"/>
+
+                    <Label text="Gestiona fácilmente clientes, bicicletas, servicios y repuestos."
+                           styleClass="descripcion-principal"/>
+
+                </VBox>
+
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+
+                <!-- FECHA Y HORA -->
+
+                <VBox alignment="CENTER_RIGHT"
+                      spacing="3">
+
+                    <Label fx:id="lblFecha"
+                           text="domingo, 13 de septiembre de 2026"
+                           styleClass="fecha"/>
+
+                    <Label fx:id="lblHora"
+                           text="12:00 p. m."
+                           styleClass="hora"/>
+
+                </VBox>
+
+            </HBox>
+
+
+            <!-- ================================================= -->
+            <!-- BANNER                                             -->
+            <!-- ================================================= -->
+
+            <StackPane fx:id="bannerContainer"
+                       styleClass="banner-container"
+                       minWidth="0"
+                       prefHeight="350.0"
+                       maxWidth="Infinity">
+
+                <ImageView fx:id="bannerImage"
+                           preserveRatio="true"
+                           smooth="true"
+                           pickOnBounds="true"
+                           StackPane.alignment="CENTER"/>
+
+            </StackPane>
+
+
+            <!-- ================================================= -->
+            <!-- ACCESOS RÁPIDOS                                   -->
+            <!-- ================================================= -->
+
+            <HBox alignment="CENTER_LEFT">
+
+                <Label text="Accesos rápidos"
+                       styleClass="titulo-accesos"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label text="&quot;Una bicicleta también es libertad&quot;"
+                       styleClass="frase"/>
+
+            </HBox>
+
+
+            <!-- ================================================= -->
+            <!-- TARJETAS                                           -->
+            <!-- ================================================= -->
+
+            <HBox spacing="18"
+                  maxWidth="Infinity"
+                  fillHeight="true">
+
+
+                <!-- CLIENTES -->
+
+                <VBox spacing="8"
+                      minWidth="0"
+                      prefWidth="0"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="tarjeta-acceso">
+
+                    <Label text="♟"
+                           styleClass="icono-tarjeta"/>
+
+                    <Label text="Clientes"
+                           styleClass="titulo-tarjeta"/>
+
+                    <Label text="Gestiona la información de los clientes."
+                           wrapText="true"
+                           styleClass="descripcion-tarjeta"/>
+
+                    <Region VBox.vgrow="ALWAYS"/>
+
+                    <Button text="→"
+                            onAction="#abrirClientes"
+                            styleClass="boton-flecha"/>
+
+                </VBox>
+
+
+                <!-- BICICLETAS -->
+
+                <VBox spacing="8"
+                      minWidth="0"
+                      prefWidth="0"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="tarjeta-acceso">
+
+                    <Label text="♧"
+                           styleClass="icono-tarjeta"/>
+
+                    <Label text="Bicicletas"
+                           styleClass="titulo-tarjeta"/>
+
+                    <Label text="Registra y administra las bicicletas."
+                           wrapText="true"
+                           styleClass="descripcion-tarjeta"/>
+
+                    <Region VBox.vgrow="ALWAYS"/>
+
+                    <Button text="→"
+                            onAction="#abrirBicicletas"
+                            styleClass="boton-flecha"/>
+
+                </VBox>
+
+
+                <!-- ÓRDENES -->
+
+                <VBox spacing="8"
+                      minWidth="0"
+                      prefWidth="0"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="tarjeta-acceso">
+
+                    <Label text="⚒"
+                           styleClass="icono-tarjeta"/>
+
+                    <Label text="Órdenes de servicio"
+                           styleClass="titulo-tarjeta"/>
+
+                    <Label text="Crea y gestiona órdenes de servicio."
+                           wrapText="true"
+                           styleClass="descripcion-tarjeta"/>
+
+                    <Region VBox.vgrow="ALWAYS"/>
+
+                    <Button text="→"
+                            onAction="#abrirOrdenes"
+                            styleClass="boton-flecha"/>
+
+                </VBox>
+
+
+                <!-- REPUESTOS -->
+
+                <VBox spacing="8"
+                      minWidth="0"
+                      prefWidth="0"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="tarjeta-acceso">
+
+                    <Label text="▣"
+                           styleClass="icono-tarjeta"/>
+
+                    <Label text="Repuestos"
+                           styleClass="titulo-tarjeta"/>
+
+                    <Label text="Controla el inventario y el stock."
+                           wrapText="true"
+                           styleClass="descripcion-tarjeta"/>
+
+                    <Region VBox.vgrow="ALWAYS"/>
+
+                    <Button text="→"
+                            onAction="#abrirRepuestos"
+                            styleClass="boton-flecha"/>
+
+                </VBox>
+
+            </HBox>
+
+
+            <!-- ================================================= -->
+            <!-- MENSAJE INFERIOR                                  -->
+            <!-- ================================================= -->
+
+            <HBox alignment="CENTER_LEFT"
+                  spacing="10"
+                  styleClass="mensaje-inferior">
+
+                <Label text="ⓘ"
+                       styleClass="icono-mensaje"/>
+
+                <Label text="Selecciona una opción del menú para comenzar a trabajar."
+                       styleClass="texto-mensaje"/>
+
+            </HBox>
 
         </VBox>
+
     </center>
 
 </BorderPane>
