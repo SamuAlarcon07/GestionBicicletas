@@ -59,18 +59,20 @@
             <!-- FORMULARIO -->
             <!-- ========================= -->
 
-            <VBox prefWidth="430"
-                  spacing="12"
+            <VBox prefWidth="450"
+                  spacing="8"
                   styleClass="panel">
 
                 <Label text="Nueva orden de servicio"
                        styleClass="titulo-seccion"/>
 
 
+                <!-- ========================= -->
                 <!-- DATOS PRINCIPALES -->
+                <!-- ========================= -->
 
                 <GridPane hgap="10"
-                          vgap="10">
+                          vgap="8">
 
                     <Label text="Fecha:"
                            GridPane.rowIndex="0"
@@ -88,6 +90,7 @@
 
                     <TextField fx:id="txtHora"
                                promptText="HH:mm"
+                               prefWidth="220"
                                GridPane.rowIndex="1"
                                GridPane.columnIndex="1"/>
 
@@ -116,40 +119,48 @@
                 </GridPane>
 
 
+                <!-- ========================= -->
                 <!-- MOTIVO -->
+                <!-- ========================= -->
 
                 <Label text="Motivo del servicio:"
                        styleClass="etiqueta-formulario"/>
 
                 <TextArea fx:id="txtMotivo"
                           promptText="Describe el motivo del servicio"
-                          prefRowCount="2"
+                          prefRowCount="1"
                           wrapText="true"/>
 
 
+                <!-- ========================= -->
                 <!-- DIAGNÓSTICO -->
+                <!-- ========================= -->
 
                 <Label text="Diagnóstico:"
                        styleClass="etiqueta-formulario"/>
 
                 <TextArea fx:id="txtDiagnostico"
                           promptText="Describe el diagnóstico"
-                          prefRowCount="2"
+                          prefRowCount="1"
                           wrapText="true"/>
 
 
-                <!-- TRABAJOS -->
+                <!-- ========================= -->
+                <!-- TRABAJOS REALIZADOS -->
+                <!-- ========================= -->
 
                 <Label text="Trabajos realizados:"
                        styleClass="etiqueta-formulario"/>
 
                 <TextArea fx:id="txtTrabajos"
                           promptText="Describe los trabajos realizados"
-                          prefRowCount="2"
+                          prefRowCount="1"
                           wrapText="true"/>
 
 
+                <!-- ========================= -->
                 <!-- COSTO -->
+                <!-- ========================= -->
 
                 <Label text="Costo total:"
                        styleClass="etiqueta-formulario"/>
@@ -166,7 +177,8 @@
                        styleClass="titulo-seccion"/>
 
 
-                <HBox spacing="8">
+                <HBox spacing="8"
+                      alignment="CENTER_LEFT">
 
                     <ComboBox fx:id="comboRepuesto"
                               promptText="Selecciona un repuesto"
@@ -178,15 +190,18 @@
 
                     <Button text="Agregar"
                             onAction="#agregarRepuesto"
-                            styleClass="boton-principal"/>
+                            styleClass="boton-principal"
+                            prefWidth="90"/>
 
                 </HBox>
 
 
-                <!-- TABLA DE REPUESTOS DE LA ORDEN -->
+                <!-- ========================= -->
+                <!-- TABLA DE REPUESTOS -->
+                <!-- ========================= -->
 
                 <TableView fx:id="tablaRepuestos"
-                           prefHeight="100">
+                           prefHeight="75">
 
                     <columns>
 
@@ -203,24 +218,32 @@
                 </TableView>
 
 
+                <!-- ========================= -->
                 <!-- ELIMINAR REPUESTO -->
+                <!-- ========================= -->
 
                 <Button text="Eliminar repuesto seleccionado"
                         onAction="#eliminarRepuesto"
-                        styleClass="boton-secundario"/>
+                        styleClass="boton-secundario"
+                        prefWidth="230"/>
 
 
-                <!-- BOTONES -->
+                <!-- ========================= -->
+                <!-- BOTONES PRINCIPALES -->
+                <!-- ========================= -->
 
-                <HBox spacing="10">
+                <HBox spacing="10"
+                      alignment="CENTER_LEFT">
 
-                    <Button text="Registrar"
+                    <Button text="Registrar orden"
                             onAction="#registrarOrden"
-                            styleClass="boton-principal"/>
+                            styleClass="boton-principal"
+                            prefWidth="180"/>
 
                     <Button text="Limpiar"
                             onAction="#limpiarCampos"
-                            styleClass="boton-secundario"/>
+                            styleClass="boton-secundario"
+                            prefWidth="100"/>
 
                 </HBox>
 
@@ -279,6 +302,7 @@
                                      text="Motivo"
                                      prefWidth="200"/>
 
+
                         <!-- REPUESTOS -->
 
                         <TableColumn fx:id="columnaRepuestos"
@@ -291,9 +315,6 @@
                         <TableColumn fx:id="columnaCosto"
                                      text="Costo"
                                      prefWidth="100"/>
-
-
-
 
                     </columns>
 
